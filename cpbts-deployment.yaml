@@ -16,5 +16,5 @@ spec:
       containers:
         - name: cpbts-container
           image: rahul1516/cpbts-app:latest
-        ports:
-          - containerPort: 3000
+          ports:
+            - containerPort: 3000
