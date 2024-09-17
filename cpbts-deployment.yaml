@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cpbts-deployment
+  name: cpbts-management
   namespace: test-ns
 spec:
   replicas: 2
@@ -10,11 +10,12 @@ spec:
       app: multi-app-services
   template:
     metadata:
-      labels: 
+      labels:
         app: multi-app-services
     spec:
       containers:
       - name: cpbts-container
         image: rahul1516/cpbts-app:latest
+
         ports:
         - containerPort: 3000
