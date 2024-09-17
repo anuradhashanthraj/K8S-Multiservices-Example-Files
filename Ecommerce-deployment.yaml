@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecommerce-web
+  namespace: test-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: multi-app-services
+  template:
+    metadata:
+      labels:
+        app: multi-app-services
+    spec:
+      containers:
+      - name: ecommerce-container
+        image: anusocial123/ecommerce-web:latest
+        ports:
+        - containerPort: 80
