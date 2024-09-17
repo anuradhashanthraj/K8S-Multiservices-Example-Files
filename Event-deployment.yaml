@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: event-container
-        image: anusocial123/event-web:latest+
+        image: anusocial123/event-web:latest
 
         ports:
         - containerPort: 81
