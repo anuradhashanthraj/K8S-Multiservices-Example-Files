@@ -5,15 +5,18 @@ metadata:
   namespace: test-ns
 spec:
   selector:
-    app: multi-app-services
+    app: multi-app 
   ports:
-  - protocol: TCP
-    port: 80         
-    targetPort: 8080         
-  - protocol: TCP
+  - name: "ecommerce-port"   
+    protocol: TCP
     port: 80                
+    targetPort: 8080         
+  - name: "event-port"       
+    protocol: TCP
+    port: 81                 
     targetPort: 8081         
-  - protocol: TCP
-    port: 3000              
+  - name: "cpbtc-port"       
+    protocol: TCP
+    port: 3000               
     targetPort: 8082         
-  type: LoadBalancer        
+  type: LoadBalancer
