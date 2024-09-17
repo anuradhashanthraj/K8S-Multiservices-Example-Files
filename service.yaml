@@ -5,7 +5,7 @@ metadata:
   namespace: test-ns
 spec:
   selector:
-    app: multi-app 
+    app: multi-app-services
   ports:
   - name: "ecommerce-port"   
     protocol: TCP
