@@ -7,16 +7,16 @@ spec:
   selector:
     app: multi-app-services
   ports:
-  - name: "ecommerce-port"   
-    protocol: TCP
-    port: 80                
-    targetPort: 8080         
-  - name: "event-port"       
-    protocol: TCP
-    port: 81                 
-    targetPort: 8081         
-  - name: "cpbtc-port"       
-    protocol: TCP
-    port: 3000               
-    targetPort: 8082         
-  type: LoadBalancer
+    - name: "ecommerce-port"   
+      protocol: TCP
+      port: 81                
+      targetPort: 80        
+    - name: "event-port"       
+      protocol: TCP
+      port: 82                 
+      targetPort: 80         
+    - name: "cpbtc-port"       
+      protocol: TCP
+      port: 3001              
+      targetPort: 3000         
+    type: LoadBalancer

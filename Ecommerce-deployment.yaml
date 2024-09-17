@@ -14,7 +14,7 @@ spec:
         app: multi-app-services
     spec:
       containers:
-      - name: ecommerce-container
-        image: anusocial123/ecommerce-web:latest
-        ports:
-        - containerPort: 80
+        - name: ecommerce-container
+          image: anusocial123/ecommerce-web:latest
+          ports:
+            - containerPort: 80
