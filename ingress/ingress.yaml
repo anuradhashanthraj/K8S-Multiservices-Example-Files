@@ -11,38 +11,18 @@ spec:
   rules:
   - http:
       paths:
-      - path: /transaction(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: transaction-svc 
-            port:
-              number: 80
-      - path: /resto(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: resto-app-service  
-            port:
-              number: 80  
-      - path: /python(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: python-app-service  
-            port:
-              number: 5000  
-      - path: /retail(/|$)(.*)
-        pathType: Prefix
-        backend:
-          service:
-            name: retail-app-service  
-            port:
-              number: 80  
       - path: /clahan(/|$)(.*)
         pathType: Prefix
         backend:
           service:
-            name: clahan-project-svc  
+            name: clahan-project-svc
             port:
-              number: 80  
+              number: 81
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx
+            port:
+              number: 80
+      
