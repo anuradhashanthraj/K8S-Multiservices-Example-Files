@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
       - name: transaction-app
-        image: muralisocial123/transcation-app:latest
+        image: muralisocial123/transcation-image:latest
         ports:
         - containerPort: 3000
         env:  
         - name: NODE_ENV
           value: "production"
-        - name: DB_URL
-          value: "postgres://user:password@transaction-db:5432/transactions"
+        - name: MONGODB_URI
+          value: mongodb://mongodb:27017/transactionhistory
 
 ---
 apiVersion: v1
@@ -33,6 +33,6 @@ spec:
     app: transaction-app
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 3002
+      targetPort: 3000
   type: ClusterIP
