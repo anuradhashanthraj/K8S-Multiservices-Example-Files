@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resto-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resto-web
+  template:
+    metadata:
+      labels:
+        app: resto-web
+    spec:
+      containers:
+      - name: resto-container
+        image: muralisocial123/resto-image:latest
+        ports:
+        - containerPort: 80
+         - name: RESTO_ENV
+          value: "PRODUCTION"
+        - name: IMAGE_API
+          value: "https://api.resto.com/v1/images"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: resto-app-service
+spec:
+  selector:
+    app: resto-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
