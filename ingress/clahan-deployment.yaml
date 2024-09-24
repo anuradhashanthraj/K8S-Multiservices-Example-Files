@@ -18,7 +18,7 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: CLAHAN TECHNOLOGIES
+        - name: CLAHAN_TECHNOLOGIES
           value: "TRAINING CENTER"
         - name: API_URL
           value: "https://clahantechnologies.com/"
