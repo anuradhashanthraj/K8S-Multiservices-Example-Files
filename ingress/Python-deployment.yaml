@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-deployment
+  name: python-app-deployment
 spec:
   replicas: 1
   selector:
@@ -17,8 +17,12 @@ spec:
         image: muralisocial123/python-app:latest
         ports:
         - containerPort: 5000
-        env: TITLE
-        value: "PYTHON,APP3"
+        env:
+        - name: PYTHON_ENV
+          value: "production"  
+        - name: API_URL
+          value: "https://api.python-app.com"  
+
 ---
 apiVersion: v1
 kind: Service
