@@ -13,13 +13,12 @@ spec:
         app: transaction-app
     spec:
       containers:
-      - name: transaction-container
-        image: muralisocial123/transcation-app:latest
-        ports:
-        - containerPort: 3000
-        env:
-        - name: TRANSACTION TITLE
-          value: "https://www.websitepulse.com/kb/transaction#"
+        - name: transaction-container
+          image: muralisocial123/transcation-app:latest
+          ports:
+            - containerPort: 80
+              env: TITLE
+              value: "PRODUCTION,APP1"
 ---
 apiVersion: v1
 kind: Service
@@ -31,5 +30,5 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 3000
+      targetPort: 80
   type: ClusterIP
