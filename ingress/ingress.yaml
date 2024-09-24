@@ -25,7 +25,7 @@ spec:
             name: resto-app-service
             port:
               number: 82
-    - path: /trans(/|$)(.*)
+      - path: /trans(/|$)(.*)
         pathType: Prefix
         backend:
           service:
