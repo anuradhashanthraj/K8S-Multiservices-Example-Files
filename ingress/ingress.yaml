@@ -32,6 +32,13 @@ spec:
             name: transaction-svc 
             port:
               number: 3002
+      - path: /ecommerce(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: ecommerce-svc 
+            port:
+              number: 83
       - path: /(.*)
         pathType: Prefix
         backend:
