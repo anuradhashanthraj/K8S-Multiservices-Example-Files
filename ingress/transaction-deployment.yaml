@@ -17,8 +17,8 @@ spec:
           image: muralisocial123/transcation-app:latest
           ports:
             - containerPort: 80
-              env: TITLE
-              value: "PRODUCTION,APP1"
+          env: TITLE
+          value: "PRODUCTION,APP1"
 ---
 apiVersion: v1
 kind: Service
