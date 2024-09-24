@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clahan-project-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clahan-web
+  template:
+    metadata:
+      labels:
+        app: clahan-web
+    spec:
+      containers:
+      - name: clahan-container
+        image: muralisocial123/clahan-web-project:v1
+        ports:
+        - containerPort: 80
+        - name: CLAHAN TECHNOLOGIES
+          value: "TRAINING CENTER"
+        - name: API_URL
+          value: "https://clahantechnologies.com/"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clahan-project-svc
+spec:
+  selector:
+    app: clahan-web
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
