@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transaction-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: transaction-app
+  template:
+    metadata:
+      labels:
+        app: transaction-app
+    spec:
+      containers:
+      - name: transaction-container
+        image: muralisocial123/transcation-app:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: TRANSACTION TITLE
+          value: "https://www.websitepulse.com/kb/transaction#"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transaction-svc
+spec:
+  selector:
+    app: transaction-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP
