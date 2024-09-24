@@ -32,6 +32,6 @@ spec:
     app: clahan-web
   ports:
     - protocol: TCP
-      port: 80
+      port: 81
       targetPort: 80
   type: ClusterIP
