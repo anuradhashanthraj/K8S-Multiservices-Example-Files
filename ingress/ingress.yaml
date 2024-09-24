@@ -18,6 +18,13 @@ spec:
             name: clahan-project-svc
             port:
               number: 81
+      - path: /resto(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: resto-app-service
+            port:
+              number: 82
       - path: /(.*)
         pathType: Prefix
         backend:
