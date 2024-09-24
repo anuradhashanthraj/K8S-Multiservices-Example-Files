@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retail-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retail-app
+  template:
+    metadata:
+      labels:
+        app: retail-app
+    spec:
+      containers:
+      - name: retail-container
+        image: muralisocial123/retail-app:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: RETAIL_ENV
+          value: "production"
+        - name: API_URL
+          value: "https://api.retail.com/v1"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: retail-app-service
+spec:
+  selector:
+    app: retail-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 85
+  type: ClusterIP
