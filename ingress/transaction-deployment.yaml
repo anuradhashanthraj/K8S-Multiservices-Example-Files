@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: transaction-app-deployment
+  name: transaction-app
 spec:
   replicas: 1
   selector:
@@ -13,12 +13,16 @@ spec:
         app: transaction-app
     spec:
       containers:
-        - name: transaction-container
-          image: muralisocial123/transcation-app:latest
-          ports:
-            - containerPort: 80
-          env: TITLE
-          value: "PRODUCTION,APP1"
+      - name: transaction-app
+        image: muralisocial123/transcation-app:latest
+        ports:
+        - containerPort: 3000
+        env:  
+        - name: NODE_ENV
+          value: "production"
+        - name: DB_URL
+          value: "postgres://user:password@transaction-db:5432/transactions"
+
 ---
 apiVersion: v1
 kind: Service
