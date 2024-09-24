@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: clahan-project-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: clahan-web
@@ -17,6 +17,7 @@ spec:
         image: muralisocial123/clahan-web-project:v1
         ports:
         - containerPort: 80
+        env:
         - name: CLAHAN TECHNOLOGIES
           value: "TRAINING CENTER"
         - name: API_URL
