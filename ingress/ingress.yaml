@@ -25,6 +25,13 @@ spec:
             name: resto-app-service
             port:
               number: 82
+    - path: /trans(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: transaction-svc 
+            port:
+              number: 3002
       - path: /(.*)
         pathType: Prefix
         backend:
@@ -32,4 +39,5 @@ spec:
             name: nginx
             port:
               number: 80
+
       
