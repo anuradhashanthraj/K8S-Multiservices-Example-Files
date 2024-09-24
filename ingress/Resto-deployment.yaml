@@ -1,24 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: resto-app-deployment
+  name: resto-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: resto-web
+      app: resto-app
   template:
     metadata:
       labels:
-        app: resto-web
+        app: resto-app
     spec:
       containers:
       - name: resto-container
         image: muralisocial123/resto-image:latest
         ports:
         - containerPort: 80
-        env: RESTO_ENV
-        value: "https://api.resto.com/v1/images"
+        env:
+        - name: RESTO_ENV
+          value: "production" 
+        - name: IMAGE_API
+          value: "https://api.resto.com/v1/images" 
 ---
 apiVersion: v1
 kind: Service
