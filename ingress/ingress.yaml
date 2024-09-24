@@ -1,0 +1,48 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata
+  name: multiservices-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /transaction(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: transaction-app
+            port:
+              number: 80
+      - path: /resto(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: resto-app-service
+            port:
+              number: 
+      - path: /python(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: python-app-service
+            port:
+              number: 5000
+      - path: /retail(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: retail-app-service
+            port:
+              number: 85     
+      - path: /clahan(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: clahan-project-svc
+            port:
+              number: 85       
