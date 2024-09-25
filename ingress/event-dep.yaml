@@ -30,10 +30,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: node-app-service
+  name: event-app-service
 spec:
   selector:
-    app: node-app
+    app: event-app
   ports:
   - protocol: TCP
     port: 86     
