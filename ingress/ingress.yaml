@@ -39,6 +39,13 @@ spec:
             name: ecommerce-svc 
             port:
               number: 83
+      - path: /node(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: node-app-service
+            port:
+              number: 3000
       - path: /(.*)
         pathType: Prefix
         backend:
