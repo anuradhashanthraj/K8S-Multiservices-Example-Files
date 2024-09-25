@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-app-deployment
+  labels:
+    app: node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: node-app
+  template:
+    metadata:
+      labels:
+        app: node-app
+    spec:
+      containers:
+      - name: node-app
+        image: anusocial123/node-app-image:latest
+        ports:
+        - containerPort: 3000  
+        env:  
+        - name: NODE_ENV
+          value: "production"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-app-service
+spec:
+  selector:
+    app: node-app
+  ports:
+  - protocol: TCP
+    port: 80      
+    targetPort: 3000  
