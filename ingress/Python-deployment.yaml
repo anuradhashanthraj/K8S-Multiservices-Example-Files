@@ -19,9 +19,7 @@ spec:
         - containerPort: 5000
         env:
         - name: PYTHON_ENV
-          value: "production"  
-        - name: API_URL
-          value: "https://api.python-app.com"  
+          value: "production"   
 
 ---
 apiVersion: v1
